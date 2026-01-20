@@ -16,9 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
+from django.http import JsonResponse
 from users.views import UserCreateView
+def api_home(request):
+    return JsonResponse({
+        "message": "E-commerce Product API is running",
+        "endpoints": {
+            "admin": "/admin/",
+            "products": "/api/products/",
+            "register": "/api/users/register/"
+        }
+    })
 
 urlpatterns = [
+   path('', api_home),
     path('admin/', admin.site.urls),
      path('api/', include('products.urls')),
     path('api/users/register/', UserCreateView.as_view()),
