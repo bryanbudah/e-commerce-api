@@ -1,19 +1,18 @@
-from django.shortcuts import render
-
 from rest_framework import viewsets, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Product
 from .serializers import ProductSerializer
 from .filters import ProductFilter
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     filter_backends = [
         DjangoFilterBackend,       
-         filters.SearchFilter,
+        filters.SearchFilter,
         filters.OrderingFilter
     ]
 

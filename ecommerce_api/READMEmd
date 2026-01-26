@@ -1,0 +1,103 @@
+E-commerce Product API (Backend Capstone)
+📌 Project Overview
+
+The E-commerce Product API is a backend RESTful API built with Django and Django REST Framework.
+It provides secure endpoints for managing products in an e-commerce platform, including authentication, product CRUD operations, search, filtering, and pagination.
+
+This project simulates real-world backend responsibilities such as API design, authentication, authorization, and data management.
+
+🚀 Features
+✅ User Management
+
+User registration
+
+JWT-based authentication (access & refresh tokens)
+
+Secure endpoints for authenticated users
+
+✅ Product Management
+
+Create, Read, Update, Delete (CRUD) products
+
+Product attributes:
+
+Name
+
+Description
+
+Price
+
+Category
+
+Stock Quantity
+
+Image URL
+
+Created Date
+
+✅ Search & Filtering
+
+Search by product name or category
+
+Filter by:
+
+Category
+
+Price range
+
+Stock availability
+
+✅ Security
+
+JWT authentication
+
+Only authenticated users can modify products
+
+Public read-only access for product listings
+
+🧰 Tech Stack
+
+Python
+
+Django
+
+Django REST Framework
+
+Simple JWT
+
+SQLite (development)
+
+django-filter
+
+📁 Project Structure
+ecommerce_api/
+│
+├── ecommerce_api/
+│   ├── settings.py
+│   ├── urls.py
+│
+├── products/
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   ├── filters.py
+│   ├── urls.py
+│
+├── users/
+│   ├── serializers.py
+│   ├── views.py
+│
+├── manage.py
+
+🔐 Authentication Endpoints
+Action	Method	Endpoint
+Register	POST	/api/users/register/
+Login	POST	/api/token/
+Refresh Token	POST	/api/token/refresh/
+📦 Product Endpoints
+Action	Method	Endpoint
+List products	GET	/api/products/
+Create product	POST	/api/products/
+Retrieve product	GET	/api/products/{id}/
+Update product	PUT	/api/products/{id}/
+Delete product	DELETE	/api/products/{id}/
